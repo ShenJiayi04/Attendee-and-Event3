@@ -4,8 +4,12 @@ import java.lang.System;
 
 public class Event{
 
+    //private final int capacity = 200;
+    private HashMap<String, Attendee> seatDetails;
+
+
     Scanner reader=new Scanner(System.in);
-    public final static int capacity=10_000;
+    public final static int capacity=200;
 
     private String eventID;
     private String eventName;
@@ -13,7 +17,9 @@ public class Event{
     private String eventVenue;
     ArrayList<Attendee> eventAttendees=new ArrayList<>();
 
-    public Event(){}
+    public Event(){
+        seatDetails = new HashMap<>(capacity, 0.6f);
+    }
 
     public void setEventID(String id){
         eventID=id;
@@ -42,6 +48,15 @@ public class Event{
     }
     public LocalDate getEventDate(){
         return eventDate;
+    }
+
+    public void setAttendeeDetails(String seatNo, Attendee attendee) {
+        seatDetails.put(seatNo, attendee);
+    }
+
+    // Getter to display attendee details based on seat number
+    public Attendee getAttendeeDetails(String seatNo) {
+        return seatDetails.get(seatNo);
     }
     
     public void organizeEvent(int choice){
@@ -84,7 +99,10 @@ public class Event{
                     System.out.println("Enter the email of attendees: ");
                     String email=reader.nextLine();
 
-                    eventAttendees.add(new Attendee(name, gender, email, age));
+                    System.out.println("Enter the seat number of attendees: ");
+                    String seatNo=reader.nextLine();
+
+                    eventAttendees.add(new Attendee(name, gender, email, age,seatNo));
                 }
                 System.out.println("\n"+"All attendees are added.");
                 break;
@@ -133,6 +151,12 @@ public class Event{
                            attendee.setGender(newGender.charAt(0));
                         }
 
+                        System.out.println("Enter the new seat number, or enter null if you don't want to update :");
+                        String newSeatNo = reader.nextLine();
+                        if(!newEmail.equals("null")){
+                            attendee.setEmail(newSeatNo);
+                        }
+
                        break;
                     }
                     else {
@@ -157,14 +181,41 @@ public class Event{
                     else {
                         System.out.println("\nIt didn't find.");
                         break;
-                        }
+                    }
                 }
                 break;
 
             case 6:
                 System.out.println("Here is the list of attendees: "+"\n"+eventAttendees);
                 break;
+            case 10:
+                break;
             case 7:
+
+                HandleComplementaryPasses handleComplementaryPasses=new HandleComplementaryPasses();
+                handleComplementaryPasses.handleComplementaryPasses();
+            
+                break;
+            case 8:
+                HandlePerformance handlePerformance=new HandlePerformance();
+                handlePerformance.handlePerformances();
+                break;
+            case 9:
+                System.out.println("Give the seat number: ");
+                String seatNoToFind=reader.nextLine();
+
+                for(Attendee attendee:eventAttendees){
+                    if(attendee.getSeatNo().equals(seatNoToFind)){
+                        System.out.println(attendee);
+                        System.out.println(seatNoToFind+" is found.");
+                        break;
+                    }
+                    else{
+                        System.out.println("\nIt didn't find.");
+                        break;
+                    }
+                }
+
                 break;
             default:
                 System.out.println("Invalid choice");
