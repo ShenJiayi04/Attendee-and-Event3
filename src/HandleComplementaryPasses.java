@@ -12,7 +12,7 @@ public class HandleComplementaryPasses{
             System.out.println("\n"+"Here are the complementary passes operation available to you: "+"\n");
             System.out.println("Type 1 to redeem complementary passes: "+"\n");
             System.out.println("Type 2 to display the list of redeemed complementary passes: "+"\n");
-            System.out.println("Type 3 to display the list redeemed complementary pass: "+"\n");
+            System.out.println("Type 3 to display the last redeemed complementary pass: "+"\n");
             System.out.println("Type 4 to undo the redeemed complementary pass: "+"\n");
             System.out.println("Type 5 to quit."+"\n");
             choice=reader.nextInt();
@@ -88,6 +88,7 @@ public class HandleComplementaryPasses{
             if(pass.getPassID().equals(ID)){
                 complementaryPasses.pop();
                 System.out.println("The pass with the ID "+ID+" has been removed from the redeemed list.");
+                break;
             }
         }
     }
