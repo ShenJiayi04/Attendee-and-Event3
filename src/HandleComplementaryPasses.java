@@ -88,7 +88,10 @@ public class HandleComplementaryPasses{
             if(pass.getPassID().equals(ID)){
                 complementaryPasses.pop();
                 System.out.println("The pass with the ID "+ID+" has been removed from the redeemed list.");
-                break;
+                return;
+            }else{
+                System.out.println("It is not found. ");
+                return;
             }
         }
     }

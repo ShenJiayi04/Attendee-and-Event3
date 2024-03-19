@@ -1,42 +1,42 @@
 class Performance {
-    private String performanceID;
-    private String performanceName;
-    private String performanceLeadName;
+   private String performanceID;
+   private String performanceName;
+   private String performanceLeadName;
 
-    public Performance(String performanceID, String performanceName, String performanceLeadName) {
+   public Performance(String performanceID, String performanceName, String performanceLeadName, char group) {
 
-        this.performanceID = performanceID;
-        this.performanceName = performanceName;
-        this.performanceLeadName = performanceLeadName;
-    }
-    
-    public String getPerformanceID() {
-        return performanceID;
-    }
-    
-    public void setPerformanceID(String performanceID) {
-       this.performanceID = performanceID;
-    }
+      this.performanceID = performanceID;
+      this.performanceName = performanceName;
+      this.performanceLeadName = performanceLeadName;
+   }
+   
+   public String getPerformanceID() {
+      return performanceID;
+   }
+   
+   public void setPerformanceID(String performanceID) {
+      this.performanceID = performanceID;
+   }
 
-    public String getPerformanceName() {
+   public String getPerformanceName() {
 
-       return performanceName;
-    }
+      return performanceName;
+   }
 
-    public void setPerformanceName(String performanceName) {
-       this.performanceName = performanceName;
-    }
+   public void setPerformanceName(String performanceName) {
+      this.performanceName = performanceName;
+   }
 
-    public String getPerformanceLeadName() {
-       return performanceLeadName;
-    }
+   public String getPerformanceLeadName() {
+      return performanceLeadName;
+   }
 
-    public void setPerformanceLeadName(String performanceLeadName) {
-       this.performanceLeadName = performanceLeadName;
-    }
+   public void setPerformanceLeadName(String performanceLeadName) {
+      this.performanceLeadName = performanceLeadName;
+   }
 
-    @Override
-    public String toString() {
-        return "Performance{" +"performanceID='" + performanceID + '\'' +", performanceName='" + performanceName + '\'' +", performanceLeadName='" + performanceLeadName + '\'' +'}';
-    }
+   @Override
+   public String toString() {
+      return "Performance{" +"performanceID='" + performanceID + '\n' +", performanceName='" + performanceName + '\n' +", performanceLeadName='" + performanceLeadName + '\n' +'}';
+   }
 }

@@ -5,11 +5,12 @@ import java.lang.System;
 public class Event{
 
     //private final int capacity = 200;
-    private HashMap<String, Attendee> seatDetails;
+    //private HashMap<String, Attendee> seatDetails;
 
 
     Scanner reader=new Scanner(System.in);
     public final static int capacity=200;
+    HashMap<String,Attendee> seatDetails=new HashMap<>(capacity,0.6f);
 
     private String eventID;
     private String eventName;
@@ -18,7 +19,7 @@ public class Event{
     ArrayList<Attendee> eventAttendees=new ArrayList<>();
 
     public Event(){
-        seatDetails = new HashMap<>(capacity, 0.6f);
+        //seatDetails = new HashMap<>(capacity, 0.6f);
     }
 
     public void setEventID(String id){

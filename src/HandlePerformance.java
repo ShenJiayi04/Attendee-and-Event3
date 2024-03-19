@@ -21,13 +21,13 @@ public class HandlePerformance {
             System.out.println("4. QUIT");
             System.out.print("Enter your choice: ");
             choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
 
             switch (choice) {
                 case 1:
                     System.out.print("Enter the number of performances to add: ");
                     int numPerformances = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine();
                     addPerformances(numPerformances, scanner);
                     break;
                 case 2:
@@ -51,12 +51,14 @@ public class HandlePerformance {
             System.out.println("Enter details for performance " + (i + 1) + ":");
             System.out.print("ID: ");
             String id = scanner.nextLine();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
             System.out.print("Name: ");
             String name = scanner.nextLine();
             System.out.print("Lead Name: ");
             String leadName = scanner.nextLine();
-            performances.add(new Performance(id, name, leadName));
+            System.out.println("Enter the rank of the performance: ");
+            char group=scanner.nextLine().charAt(0);
+            performances.offer(new Performance(id, name, leadName,group));
         }
     }
 
